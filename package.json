@@ -1,0 +1,17 @@
+{
+  "name": "voice-tuner",
+  "version": "0.1.0",
+  "main": "",
+  "scripts": {},
+  "author": "",
+  "license": "MIT",
+  "description": "",
+  "private": true,
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "vue": "^1.0.26"
+  },
+  "autoload": {},
+  "devDependencies": {}
+}
