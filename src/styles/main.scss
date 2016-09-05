@@ -1,0 +1,11 @@
+
+/* Core
+------------------------------------- */
+
+@import './core/reset';
+
+body {
+    background-color: #fff;
+    display: flex;
+    user-select: none;
+}
