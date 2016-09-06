@@ -1,11 +1,13 @@
 
 /* Core
 ------------------------------------- */
-
 @import './core/reset';
+@import './core/variables';
+@import './core/mixins';
 
-body {
-    background-color: #fff;
-    display: flex;
-    user-select: none;
-}
+/* Components
+------------------------------------- */
+@import './components/main';
+@import './components/header';
+@import './components/footer';
+@import './components/content';
