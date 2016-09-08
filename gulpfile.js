@@ -8,42 +8,56 @@ var gulp        = require('gulp'),
     uglify      = require('gulp-uglify'),
     imageMin    = require('gulp-imagemin'),
     babel       = require('gulp-babel'),
-    htmlmin     = require('gulp-htmlmin');
+    htmlmin     = require('gulp-htmlmin'),
+    gulpMerge   = require('gulp-merge');
 
-var PATH_SRC = './src/';
+var PATH_SRC  = './src/';
 var PATH_DIST = './dist/';
 var PATH_NODE = './node_modules/';
 
 /* scripts */
 
+var scriptsLibs = [
+    PATH_NODE + 'vue/dist/vue.js',
+];
+
 var scriptsSrc = [
-    // libs
-    PATH_NODE + 'vue/vue.js'
-    //,
-    // PATH_SRC + 'scripts/config.js',
-    // // others
-    // // elements
-    // PATH_SRC + 'scripts/main.js'
+    PATH_SRC + 'scripts/config.js',
+    // others
+    PATH_SRC + 'elements/**/*.js',
+    PATH_SRC + 'scripts/main.js'
 ];
 
 var scriptsDist = PATH_DIST + 'scripts/';
 
 gulp.task('scripts', function() {
-    return gulp
-        .src(scriptsSrc)
-        .pipe(babel({
-            presets: ['es2015']
-        }))
+    return gulpMerge(
+            gulp
+                .src(scriptsLibs)
+                .pipe(concat('libs.js')),
+            gulp
+                .src(scriptsSrc)
+                .pipe(babel({
+                    presets: ['es2015']
+                }))
+                .pipe(concat('src.js'))
+        )
         .pipe(concat('app.js'))
         .pipe(gulp.dest(scriptsDist));
 });
 
 gulp.task('scripts-min', function() {
-    return gulp
-        .src(scriptsSrc)
-        .pipe(babel({
-            presets: ['es2015']
-        }))
+    return gulpMerge(
+            gulp
+                .src(scriptsLibs)
+                .pipe(concat('libs.js')),
+            gulp
+                .src(scriptsSrc)
+                .pipe(babel({
+                    presets: ['es2015']
+                }))
+                .pipe(concat('src.js'))
+        )
         .pipe(concat('app.js'))
         .pipe(uglify())
         .pipe(rename('app.js'))
@@ -153,6 +167,6 @@ gulp.task('templates-min', function() {
 
 gulp.task('default', ['images', 'scripts', 'styles', 'views', 'templates']);
 
-// gulp.task('dist', ['images-min', 'scripts-min', 'styles-min', 'views-min', 'templates-min']);
+gulp.task('dist', ['images-min', 'scripts-min', 'styles-min', 'views-min', 'templates-min']);
 
 // gulp.watch('', ['default']);
