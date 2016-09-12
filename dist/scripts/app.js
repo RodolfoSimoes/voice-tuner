@@ -10074,22 +10074,16 @@ var template = Object.freeze({
 "use strict";
 'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+(function () {
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+    var template = '<div class="tuner">            <header></header>            <section></section>            <footer></footer>        </div>';
 
-var TESTE = function () {
-    function TESTE() {
-        _classCallCheck(this, TESTE);
-    }
+    Vue.component('tuner', {
+        template: template
+    });
+})();
+'use strict';
 
-    _createClass(TESTE, [{
-        key: 'metodo',
-        value: function metodo() {
-            console.log('esse é um teste');
-        }
-    }]);
-
-    return TESTE;
-}();
-"use strict";
+new Vue({
+    el: '#application'
+});

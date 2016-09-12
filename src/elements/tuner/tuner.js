@@ -1,5 +1,14 @@
-class TESTE {
-    metodo() {
-        console.log('esse é um teste');
-    }
-}
+(function() {
+
+    let template =
+        `<div class="tuner">\
+            <header></header>\
+            <section></section>\
+            <footer></footer>\
+        </div>`;
+
+    Vue.component('tuner', {
+      template: template
+    })
+    
+})();
