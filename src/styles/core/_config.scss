@@ -1,0 +1,11 @@
+html body {
+    width: 100%;
+    min-height: 100%;
+    color: $color-font;
+    font-family: $font-family-default;
+    font-size: $font-size-default;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-font-smoothing: antialiased !important;
+    text-rendering: optimizelegibility !important;
+}

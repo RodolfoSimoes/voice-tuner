@@ -10076,9 +10076,29 @@ var template = Object.freeze({
 
 (function () {
 
-    var template = '<div class="tuner">            <header></header>            <section></section>            <footer></footer>        </div>';
+    var template = '<div class="tuner">            <tuner-header></tuner-header>            <section class="tuner__content"></section>            <tuner-footer></tuner-footer>        </div>';
 
     Vue.component('tuner', {
+        template: template
+    });
+})();
+'use strict';
+
+(function () {
+
+    var template = '<header class="tuner-header">            <a class="tuner-header__logo"><b>Voice</b>Tuner</a>        </header>';
+
+    Vue.component('tuner-header', {
+        template: template
+    });
+})();
+'use strict';
+
+(function () {
+
+    var template = '<footer class="tuner-footer">            <span class="tuner-footer__copy">Voice Tuner Project &copy; 2016</span>        </footer>';
+
+    Vue.component('tuner-footer', {
         template: template
     });
 })();

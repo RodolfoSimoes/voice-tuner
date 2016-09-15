@@ -2,13 +2,13 @@
 
     let template =
         `<div class="tuner">\
-            <header></header>\
-            <section></section>\
-            <footer></footer>\
+            <tuner-header></tuner-header>\
+            <section class="tuner__content"></section>\
+            <tuner-footer></tuner-footer>\
         </div>`;
 
     Vue.component('tuner', {
       template: template
     })
-    
+
 })();

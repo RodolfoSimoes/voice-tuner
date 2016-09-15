@@ -1,6 +1,7 @@
 
 var gulp        = require('gulp'),
     concat      = require('gulp-concat'),
+    gutil       = require('gulp-util'),
     babel       = require('gulp-babel'),
     sass        = require('gulp-sass'),
     rename      = require('gulp-rename'),
@@ -20,7 +21,9 @@ var scriptsLibs = [
 
 var scriptsSrc = [
     PATH_SRC + 'scripts/config.js',
-    PATH_SRC + 'elements/tuner/tuner.js',
+    PATH_SRC + 'scripts/elements/tuner.js',
+    PATH_SRC + 'scripts/elements/tuner-header.js',
+    PATH_SRC + 'scripts/elements/tuner-footer.js',
     PATH_SRC + 'scripts/main.js'
 ];
 
@@ -45,8 +48,9 @@ gulp.task('scripts', function() {
 /* styles */
 
 var stylesSrc = [
-    PATH_SRC + 'styles/main.scss',
-    PATH_SRC + 'elements/**/*.scss'
+    PATH_SRC + 'styles/**/**/*.scss',
+    PATH_SRC + 'styles/**/*.scss',
+    PATH_SRC + 'styles/*.scss'
 ];
 
 var stylesDist = PATH_DIST + 'styles/';
@@ -54,11 +58,11 @@ var stylesDist = PATH_DIST + 'styles/';
 gulp.task('styles', function() {
     return gulp
         .src(stylesSrc)
-        .pipe(sass())
+        .pipe(sass().on('error', gutil.log))
         .pipe(cssPrefixer({
             browsers: ['last 4 versions', 'IE 10']
         }))
-        .pipe(rename('app.css'))
+        // .pipe(rename('app.css'))
         .pipe(gulp.dest(stylesDist));
 });
 
@@ -94,7 +98,7 @@ gulp.task('views', function() {
 
 var serverPath = PATH_DIST;
 
-gulp.task('webserver', function() {
+gulp.task('server', function() {
   gulp
     .src(serverPath)
     .pipe(webserver({
@@ -105,7 +109,8 @@ gulp.task('webserver', function() {
 /* Watch */
 
 gulp.task('watch', function() {
-	gulp.watch(scriptsSrc, ['scripts']);
+    gulp.watch(scriptsSrc, ['scripts']);
+	gulp.watch(stylesSrc, ['styles']);
 });
 
 gulp.task('default', ['images', 'scripts', 'styles', 'views']);

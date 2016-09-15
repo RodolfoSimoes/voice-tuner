@@ -1,0 +1,27 @@
+.tuner-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $header-height;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $color-background;
+    border-bottom: 1px solid rgba(0,0,0,0.14);
+}
+
+.tuner-header__logo {
+    font-size: 22px;
+    color: $color-font2;
+
+    > b {
+        font-weight: 700;
+    }
+}
+
+@media #{$screen-small} {
+    .tuner-header {
+        height: $header-height-small;
+    }
+}

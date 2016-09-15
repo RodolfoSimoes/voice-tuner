@@ -1,11 +1,36 @@
-/* Colors
----------------------------------- */
-$color-primary: #aaa;
+// Fonts
+//----------------------------------
+$font-family-default: 'Roboto';
+$font-size-default: 16px;
 
-/* Screens
----------------------------------- */
-// $screen-xs: 1200px;
-// $screen-sm: 1200px;
-// $screen-md: 1200px;
-// $screen-lg: 1200px;
-// $screen-vlg: 1200px;
+// Colors
+//----------------------------------
+$color-primary: #aaa;
+$color-font: rgba(0,0,0,0.87);
+$color-font2: #767676;
+$color-background: #FFF;
+$color-background2: #37474F;
+
+// Screens
+//----------------------------------
+$screen-xs: 540px; // 0 .. 540
+$screen-sm: 768px; // 541 .. 768
+$screen-md: 992px; // 769 .. 1200
+$screen-lg: 1200px; // 1201 .. ...
+
+// Media Queries
+//----------------------------------
+$screen-micro: 'screen and (min-width: 0px)'; // 0 .. 540
+$screen-small: 'screen and (min-width: 541px)'; // 541 .. 768
+$screen-medium: 'screen and (min-width: 769px)'; // 769 .. 1200
+$screen-large: 'screen and (min-width: 1201px)'; // 1201 .. ...
+
+// Header
+//----------------------------------
+$header-height: 56px;
+$header-height-small: 64px;
+
+// Footer
+//----------------------------------
+$footer-height: 42px;
+$footer-height-small: 50px
